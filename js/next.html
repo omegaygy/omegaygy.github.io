@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Anda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9cbe8;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(250, 136, 226, 0.5);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #fa88e2;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            color: #fa88e2;
+            margin-top: 10px;
+        }
+        td {
+            padding: 5px;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        button {
+            flex: 1;
+            padding: 8px;
+            margin: 5px;
+            background-color: #fa88e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #e077cb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Data Anda</h2>
+        <table>
+            <tr>
+                <td><strong>Nama</strong></td>
+                <td id="nama"></td>
+            </tr>
+            <tr>
+                <td><strong>Tanggal</strong></td>
+                <td id="tanggal"></td>
+            </tr>
+            <tr>
+                <td><strong>Umur</strong></td>
+                <td id="umur"></td>
+            </tr>
+        </table>
+
+        <!-- Tombol Menu -->
+        <div class="menu">
+            <button onclick="window.location.href='longtext.html'">Bacaan</button>
+            <button onclick="window.location.href='panduan.html'">Pertanyaan</button>
+            <button onclick="goBack()">Kembali</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mengambil parameter dari URL
+        function getParameterByName(name) {
+            let url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+
+        // Menampilkan data yang diambil dari URL
+        document.getElementById("nama").textContent = getParameterByName("nama") || "-";
+        document.getElementById("tanggal").textContent = getParameterByName("tanggal") || "-";
+        document.getElementById("umur").textContent = getParameterByName("umur") || "-";
+
+        // Fungsi untuk kembali ke halaman sebelumnya
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

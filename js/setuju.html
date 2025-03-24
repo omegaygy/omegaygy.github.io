@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertanyaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9cbe8;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(250, 136, 226, 0.5);
+            width: 400px;
+        }
+        h2 {
+            color: #fa88e2;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        td {
+            padding: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 6px;
+            margin-top: 2px;
+            border: 1px solid #fa88e2;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fa88e2;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Jawablah Pertanyaan Berikut dengan Jujur</h2>
+        <form id="myForm">
+            <table>
+                <tr>
+                    <td><label for="email">Email Anda:</label></td>
+                </tr>
+                <tr>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="q1">1. Apakah anda bahagia bersama saya?</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="q1" name="q1" required></td>
+                </tr>
+                <tr>
+                    <td><label for="q2">2. Hal apa yang berkesan dari saya bagi anda?</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="q2" name="q2" required></td>
+                </tr>
+                <tr>
+                    <td><label for="q3">3. Apa hal yang tidak anda suka dari saya?</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="q3" name="q3" required></td>
+                </tr>
+                <tr>
+                    <td><label for="q4">4. Apakah anda sayang kepada saya?</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="q4" name="q4" required></td>
+                </tr>
+                <tr>
+                    <td><label for="q5">5. Apakah anda akan memberikan saya kesempatan?</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="q5" name="q5" required></td>
+                </tr>
+            </table>
+        
+            <!-- Tombol Kirim -->
+            <div class="buttons">
+                <button type="submit">Kirim</button>
+            </div>
+        </form>        
+    </div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah reload halaman
+
+            // Mengambil data form
+            const formData = new FormData(this);
+
+            // Kirim data ke Formspree
+            fetch("https://formspree.io/f/movewlpr", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Jawaban Anda telah terkirim!"); // Notifikasi sukses
+                    window.location.href = "berikut.html"; // Redirect setelah sukses
+                } else {
+                    alert("Gagal mengirim, coba lagi nanti.");
+                }
+            }).catch(error => {
+                alert("Terjadi kesalahan: " + error.message);
+            });
+        });
+    </script>
+
+</body>
+</html>

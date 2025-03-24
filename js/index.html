@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9cbe8;
+        }
+        .container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #fa88e2(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: center;
+        }
+        h2 {
+            color: #fa88e2;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        h3 {
+            color: #fa88e2;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            color: #fa88e2;
+        }
+        td {
+            padding: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 6px;
+            margin-top: 2px;
+            border: 1px solid #fa88e2;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fa88e2;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            background-color: #fa88e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #e077cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Masukkan Data Anda</h2>
+        <h3>Silakan isi form di bawah ini:</h3>
+        <form action="next.html" method="GET">
+            <table>
+                <tr>
+                    <td><label for="nama">Nama</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="nama" name="nama" required></td>
+                </tr>
+                <tr>
+                    <td><label for="tanggal">Tanggal</label></td>
+                </tr>
+                <tr>
+                    <td><input type="date" id="tanggal" name="tanggal" required></td>
+                </tr>
+                <tr>
+                    <td><label for="umur">Umur</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="umur" name="umur" required>
+                            <option value="" disabled selected>Pilih umur</option>
+                            <!-- Loop opsi umur dari 1 sampai 100 -->
+                            <script>
+                                for (let i = 17; i <= 30; i++) {
+                                    document.write(`<option value="${i}">${i}</option>`);
+                                }
+                            </script>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Next</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
+
