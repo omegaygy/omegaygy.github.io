@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9cbe8;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(250, 136, 226, 0.5);
+            width: 400px;
+        }
+        h2 {
+            color: #fa88e2;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        ul {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        button {
+            flex: 1;
+            padding: 8px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .no {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .yes {
+            background-color: #4caf50;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Panduan Pengisian</h2>
+        <p>Silakan baca panduan berikut sebelum melanjutkan:</p>
+        <ul>
+            <li> Pastikan Anda mengisi semua data dengan benar dan dalam keadaan sadar tanpa paksaan dari pihak manapun.</li>
+            <li> Mengisi pertanyaan dengan jujur.</li>
+            <li> Kuisioner hanya bisa diisi sekali dan tanpa perbaikan.</li>
+            <li> Klik <strong>"Setuju"</strong> untuk melanjutkan ke halaman pertanyaan.</li>
+            <li> Klik <strong>"Tidak Setuju"</strong> jika ingin kembali ke halaman utama.</li>
+        </ul>
+
+        <!-- Tombol untuk Navigasi -->
+        <div class="buttons">
+            <button class="no" onclick="window.location.href='index.html'">Tidak Setuju</button>
+            <button class="yes" onclick="window.location.href='setuju.html'">Setuju</button>
+        </div>
+    </div>
+
+</body>
+</html>

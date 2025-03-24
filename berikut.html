@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertanyaan Balikan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9cbe8;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(250, 136, 226, 0.5);
+            width: 400px;
+            position: relative;
+        }
+        h2 {
+            color: #fa88e2;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            transition: 0.2s;
+        }
+        .yes {
+            background-color: #4caf50;
+            position: relative; /* Pastikan tombol "Mau" tetap di tempat */
+        }
+        .no {
+            background-color: #ff4d4d;
+            position: relative; /* Awalnya tetap sejajar */
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>mau nggak kamu balikan sama aku?</h2>
+        <div class="buttons">
+            <button class="yes" onclick="sendWhatsApp()">Mau</button>
+            <button class="no" id="noButton" onmouseover="moveButton()">Tidak Mau</button>
+        </div>
+    </div>
+
+    <script>
+        function sendWhatsApp() {
+            window.location.href = "https://wa.me/6282223592761?text=Iyaa%20aku%20mauuu";
+        }
+
+        function moveButton() {
+            let button = document.getElementById("noButton");
+
+            // Pastikan tombol "Tidak Mau" jadi absolute setelah disentuh
+            button.style.position = "absolute";
+
+            let container = document.querySelector(".container");
+            let maxX = container.clientWidth - button.clientWidth - 20;
+            let maxY = container.clientHeight - button.clientHeight - 20;
+
+            let randomX = Math.random() * maxX;
+            let randomY = Math.random() * maxY;
+
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        }
+    </script>
+
+</body>
+</html>
